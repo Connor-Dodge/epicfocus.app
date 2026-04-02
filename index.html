@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epic Focus — Achieve Epic Focus Without Giving Up What You Love</title>
+  <meta name="description" content="A gamified system that turns digital addicts into epicly focused individuals — without giving up the digital things they truly love.">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #12121a;
+      --border: #1e1e2e;
+      --text: #e0e0e8;
+      --text-muted: #8888a0;
+      --accent: #7c5cfc;
+      --accent-glow: rgba(124, 92, 252, 0.3);
+      --gold: #f0c040;
+      --green: #40d080;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Pixel grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(124, 92, 252, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 92, 252, 0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      padding: 48px 0 0;
+      text-align: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      image-rendering: pixelated;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Silkscreen', monospace;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: white;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .tagline {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 48px;
+    }
+
+    /* Hero section */
+    .hero {
+      text-align: center;
+      padding: 40px 0 60px;
+    }
+
+    .hero h2 {
+      font-family: 'Silkscreen', monospace;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text);
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .transformation {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 0 auto 48px;
+      max-width: 640px;
+      text-align: left;
+    }
+
+    .transformation .label {
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .transformation p {
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+
+    .transformation strong {
+      color: white;
+    }
+
+    .transformation .obstacle {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Pillars */
+    .pillars {
+      padding: 40px 0;
+    }
+
+    .pillars h3 {
+      font-family: 'Silkscreen', monospace;
+      font-size: 1.25rem;
+      text-align: center;
+      margin-bottom: 32px;
+      color: white;
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .pillar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .pillar:hover {
+      border-color: var(--accent);
+    }
+
+    .pillar-icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      display: block;
+      font-family: 'Silkscreen', monospace;
+    }
+
+    .pillar h4 {
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.875rem;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .pillar p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .cta-section h3 {
+      font-family: 'Silkscreen', monospace;
+      font-size: 1.5rem;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .signup-form {
+      display: flex;
+      gap: 12px;
+      max-width: 460px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .signup-form input[type="email"] {
+      flex: 1;
+      min-width: 240px;
+      padding: 14px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      font-family: 'Inter', system-ui, sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .signup-form input[type="email"]:focus {
+      border-color: var(--accent);
+    }
+
+    .signup-form input[type="email"]::placeholder {
+      color: var(--text-muted);
+    }
+
+    .signup-form button {
+      padding: 14px 28px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .signup-form button:hover {
+      background: #6b4be0;
+      box-shadow: 0 0 24px var(--accent-glow);
+    }
+
+    .spots {
+      margin-top: 16px;
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.75rem;
+      color: var(--gold);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .pillar-grid {
+        grid-template-columns: 1fr;
+      }
+      header { padding-top: 32px; }
+      .transformation { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="assets/icon.png" alt="Epic Focus" class="logo">
+      <h1>Epic Focus</h1>
+      <p class="tagline">A gamified system that turns digital addicts into epicly focused individuals — without giving up the digital things they truly love.</p>
+    </header>
+
+    <section class="hero">
+      <h2>The 30-Day Epic Focus Forge</h2>
+      <p>Your focus powers the growth of a pixel-art city. Block distractions, complete quests, train your mind, and build something epic — together.</p>
+
+      <div class="transformation">
+        <div class="label">The Transformation</div>
+        <p>
+          Achieve <strong>4+ hours of enjoyable deep work daily</strong> without giving up the digital things you love
+          — <span class="obstacle">even if you have zero discipline, believe you'd have to become a monk, or have tried every productivity tool and failed.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="pillars">
+      <h3>Four Pillars. One City.</h3>
+      <div class="pillar-grid">
+        <div class="pillar">
+          <span class="pillar-icon">//</span>
+          <h4>Productivity Suite</h4>
+          <p>Tasks, calendar, goals, and habits — all gamified. Your real work fuels your city's growth.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">||</span>
+          <h4>App & Site Blocker</h4>
+          <p>Onlylists and blocklists that activate with your focus sessions. Block distractions, keep your tools.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">{}</span>
+          <h4>Training</h4>
+          <p>Story-driven courses with dialogue, challenges, and minigames that teach you the science of focus.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon"><></span>
+          <h4>Accountability</h4>
+          <p>Join a clan. Build cities together. See each other's progress. Stay accountable without the pressure.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h3>Founding Cohort Opening Soon</h3>
+      <p>20 spots. Daily access to the founder. A system built around you.</p>
+      <form class="signup-form" action="https://formspree.io/f/PLACEHOLDER" method="POST">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <button type="submit">Join the Waitlist</button>
+      </form>
+      <p class="spots">20 founding spots only</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Epic Focus. Forge your focus.</p>
+    </footer>
+  </div>
+</body>
+</html>
