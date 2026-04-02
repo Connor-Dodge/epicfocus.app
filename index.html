@@ -342,10 +342,10 @@
           btn.disabled = true;
           btn.textContent = '...';
           try {
-            const res = await fetch('https://api.epicfocus.app/waitlist/join', {
+            const res = await fetch('https://app.epicfocus.app/waitlist', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ method: 'join', params: { email: email } }),
+              body: JSON.stringify({ email: email }),
             });
             if (res.ok) {
               status.textContent = "You're on the list. We'll be in touch.";
