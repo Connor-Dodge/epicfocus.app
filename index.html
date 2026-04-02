@@ -328,11 +328,41 @@
     <section class="cta-section">
       <h3>Founding Cohort Opening Soon</h3>
       <p>20 spots. Daily access to the founder. A system built around you.</p>
-      <form class="signup-form" action="https://formspree.io/f/PLACEHOLDER" method="POST">
-        <input type="email" name="email" placeholder="your@email.com" required>
-        <button type="submit">Join the Waitlist</button>
+      <form class="signup-form" id="waitlist-form">
+        <input type="email" name="email" id="waitlist-email" placeholder="your@email.com" required>
+        <button type="submit" id="waitlist-btn">Join the Waitlist</button>
       </form>
-      <p class="spots">20 founding spots only</p>
+      <p class="spots" id="waitlist-status">20 founding spots only</p>
+      <script>
+        document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const email = document.getElementById('waitlist-email').value;
+          const btn = document.getElementById('waitlist-btn');
+          const status = document.getElementById('waitlist-status');
+          btn.disabled = true;
+          btn.textContent = '...';
+          try {
+            const res = await fetch('https://api.epicfocus.app/waitlist/join', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ method: 'join', params: { email: email } }),
+            });
+            if (res.ok) {
+              status.textContent = "You're on the list. We'll be in touch.";
+              status.style.color = '#40d080';
+              document.getElementById('waitlist-email').value = '';
+            } else {
+              status.textContent = 'Something went wrong. Try again.';
+              status.style.color = '#f04040';
+            }
+          } catch {
+            status.textContent = 'Something went wrong. Try again.';
+            status.style.color = '#f04040';
+          }
+          btn.disabled = false;
+          btn.textContent = 'Join the Waitlist';
+        });
+      </script>
     </section>
 
     <footer>
