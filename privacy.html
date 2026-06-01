@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Epic Focus</title>
+  <meta name="description" content="How Epic Focus handles your data, including Apple Health, calendar, and account information.">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #12121a;
+      --border: #1e1e2e;
+      --text: #e0e0e8;
+      --text-muted: #8888a0;
+      --accent: #7c5cfc;
+      --accent-glow: rgba(124, 92, 252, 0.3);
+      --gold: #f0c040;
+      --green: #40d080;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(124, 92, 252, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 92, 252, 0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 48px 0 32px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      image-rendering: pixelated;
+      margin-bottom: 20px;
+    }
+
+    .home-link {
+      display: inline-block;
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .home-link:hover { color: var(--gold); }
+
+    h1 {
+      font-family: 'Silkscreen', monospace;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .meta {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-family: 'Silkscreen', monospace;
+      letter-spacing: 1px;
+    }
+
+    main { padding-bottom: 64px; }
+
+    .intro {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    .intro strong { color: white; }
+
+    h2 {
+      font-family: 'Silkscreen', monospace;
+      font-size: 1.125rem;
+      color: var(--gold);
+      margin: 48px 0 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.875rem;
+      color: white;
+      margin: 28px 0 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    p { margin-bottom: 14px; }
+
+    ul {
+      margin: 0 0 18px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent);
+    }
+
+    a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+    strong { color: white; font-weight: 600; }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 0.9em;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--text);
+    }
+
+    .callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 20px 0;
+    }
+
+    .callout.health {
+      border-left-color: var(--green);
+    }
+
+    .callout .label {
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .callout.health .label { color: var(--green); }
+
+    .callout p:last-child { margin-bottom: 0; }
+
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      border-bottom: none;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 480px) {
+      header { padding: 32px 0 24px; }
+      .intro { padding: 20px; }
+      .callout { padding: 14px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="assets/icon.png" alt="Epic Focus" class="logo">
+      <a href="/" class="home-link">&larr; Epic Focus</a>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: May 30, 2026</p>
+    </header>
+
+    <main>
+      <div class="intro">
+        <p>Epic Focus is a productivity app built by <strong>Connor Dodge LLC</strong>. We collect the minimum data needed to make the app work, store it on infrastructure we control, and we don't sell it, share it, or use it for advertising. This page explains what we collect, why, and how it's protected.</p>
+      </div>
+
+      <h2>1. Who We Are</h2>
+      <p>Epic Focus is operated by Connor Dodge LLC ("we", "us", "Epic Focus"). If you have any questions about this policy or your data, email <a href="mailto:connor@greatness.games">connor@greatness.games</a>.</p>
+
+      <h2>2. What We Collect</h2>
+
+      <h3>Account information</h3>
+      <p>When you create an account, we store your email address and a cryptographic hash of your password (we never store the password itself). If you sign in with Google, we receive your email address and a Google account identifier — we do not receive your Google password.</p>
+
+      <h3>Your productivity data</h3>
+      <p>Anything you create in Epic Focus is stored on our servers so it can sync across your devices:</p>
+      <ul>
+        <li><strong>Tasks, quests, chapters, subtasks, and tags</strong> — titles, due dates, notes, durations, completion status</li>
+        <li><strong>Habits and habit completions</strong> — habit name, target value, units, schedule, completion dates and values</li>
+        <li><strong>Focus sessions</strong> — start, pause, and end times, duration, and any focus rating you provide</li>
+        <li><strong>Blocker profiles</strong> — the lists of domains, search terms, and app names you choose to block during focus</li>
+        <li><strong>Game state</strong> — the progression of your city/village within the app's gamified layer</li>
+        <li><strong>Preferences</strong> — display, notification, and integration settings</li>
+      </ul>
+
+      <h3>Apple Health data</h3>
+      <div class="callout health">
+        <span class="label">HealthKit Disclosure</span>
+        <p>If you connect a habit to Apple Health, Epic Focus reads <strong>aggregated daily values</strong> for that habit from HealthKit on your device — for example, your total step count for today, or your total sleep hours for last night. We then send a single number per habit per day to our servers, tagged as coming from Apple Health.</p>
+        <p>We do <strong>not</strong> receive raw HealthKit samples, timestamps within the day, individual workouts, heart-rate series, or any HealthKit data not tied to a habit you specifically enabled. Your raw HealthKit data never leaves your device.</p>
+        <p>In line with Apple's HealthKit terms: we do not use HealthKit data for advertising, do not share or sell it to third parties, and do not use it for any purpose other than tracking the habits you've connected. Epic Focus only reads from HealthKit — it never writes data back.</p>
+      </div>
+
+      <h3>Calendar data</h3>
+      <p>If you grant calendar access, Epic Focus reads your calendar events from your device so it can display them alongside your tasks and focus sessions. <strong>Your calendar events stay on your device.</strong> We do not transmit them to our servers, and we do not write new events to your calendar.</p>
+
+      <h3>Device permissions we may request</h3>
+      <ul>
+        <li><strong>Calendar</strong> — to display events next to your tasks (read-only)</li>
+        <li><strong>HealthKit</strong> — to read aggregated daily values for habits you've connected (read-only)</li>
+        <li><strong>Contacts</strong> — to display attendee information on calendar events (read-only)</li>
+        <li><strong>Notifications</strong> — to send reminders for habits and focus sessions (sent locally from your device)</li>
+      </ul>
+      <p>You can revoke any of these permissions at any time in your device settings.</p>
+
+      <h3>Technical information</h3>
+      <p>When your app talks to our servers, we automatically receive standard request metadata: your IP address, the time of the request, and a user-agent string identifying your device type. We use this to operate the service (rate-limit abuse, debug errors, keep servers healthy). We do not build advertising profiles from it.</p>
+
+      <h3>Waitlist signups</h3>
+      <p>If you submit your email on our marketing site, we add it to a marketing contact list managed by Resend (our email provider) so we can notify you about availability. We rate-limit signups by IP address to prevent abuse. You can ask us to remove you at any time by emailing <a href="mailto:connor@greatness.games">connor@greatness.games</a>.</p>
+
+      <h2>3. What We Don't Collect</h2>
+      <p>To be explicit about what Epic Focus does <strong>not</strong> do:</p>
+      <ul>
+        <li><strong>No analytics or behavioural tracking.</strong> No PostHog, Mixpanel, Firebase Analytics, Amplitude, or anything similar. We don't track which buttons you press.</li>
+        <li><strong>No advertising or ad networks.</strong> Epic Focus does not show ads and does not embed advertising SDKs.</li>
+        <li><strong>No third-party crash reporting.</strong> We do not currently send crash reports to Sentry, Crashlytics, or similar services.</li>
+        <li><strong>No URL or browsing-history collection.</strong> The optional browser extension that powers site blocking enforces rules locally in your browser. The URLs you visit are never sent to our servers.</li>
+        <li><strong>No selling your data.</strong> Ever.</li>
+      </ul>
+
+      <h2>4. How Your Data Is Protected</h2>
+
+      <h3>Encryption in transit</h3>
+      <p>All communication between the Epic Focus app and our servers is encrypted with HTTPS / TLS. Our browser extension and desktop integration communicate over secure local channels.</p>
+
+      <h3>Encryption at rest</h3>
+      <p>Our database is PostgreSQL, hosted on Google Cloud. Google Cloud encrypts all data at rest with <strong>AES-256</strong>, using Google-managed encryption keys. This applies to the live database, automated backups, and read replicas.</p>
+
+      <h3>Credentials</h3>
+      <p>Passwords are stored as cryptographic hashes — we cannot read your password and could not disclose it even if asked. API tokens used by integrations (the Raycast extension, the MCP server) are similarly stored as SHA-256 hashes on our servers. On your device, authentication tokens are kept in your operating system's secure storage (Keychain on Apple platforms, equivalent on others).</p>
+
+      <h2>5. Third-Party Services</h2>
+      <p>Epic Focus relies on a small set of third parties to operate. Each only receives the data necessary for its function:</p>
+      <ul>
+        <li><strong>Google Cloud</strong> — hosts our application servers and PostgreSQL database. Subject to Google Cloud's privacy and security commitments.</li>
+        <li><strong>Google Sign-In</strong> (optional) — if you choose to sign in with Google, Google receives the standard sign-in request and returns your email and an account identifier to us.</li>
+        <li><strong>Apple HealthKit</strong> — an on-device API. Apple does not see what Epic Focus reads from HealthKit; the data is shared only between HealthKit and the Epic Focus app on your device.</li>
+        <li><strong>Resend</strong> — our transactional and marketing email provider. Receives email addresses submitted to our waitlist and any email we send you.</li>
+      </ul>
+
+      <h2>6. Data Retention</h2>
+      <p>We keep your account and the productivity data you've created for as long as your account is active. If you delete your account, we delete your account record and the data associated with it from our active database. Encrypted nightly backups containing previous states may persist for up to <strong>7 days</strong> before being overwritten on rotation.</p>
+      <p>If your account is inactive for an extended period, we may reach out before deleting it.</p>
+
+      <h2>7. Your Rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li><strong>Access</strong> the data we hold about you</li>
+        <li><strong>Correct</strong> data that's wrong</li>
+        <li><strong>Delete</strong> your account and the data tied to it</li>
+        <li><strong>Export</strong> your productivity data in a portable format</li>
+        <li><strong>Withdraw consent</strong> for optional integrations (Apple Health, Calendar, Google Sign-In) at any time from your device settings</li>
+      </ul>
+      <p>To exercise any of these rights, email <a href="mailto:connor@greatness.games">connor@greatness.games</a>. We aim to respond within 30 days.</p>
+
+      <h2>8. Children</h2>
+      <p>Epic Focus is not directed at children under 13, and we do not knowingly collect data from children under 13. If you believe a child has created an account, please contact us and we will delete it.</p>
+
+      <h2>9. International Users</h2>
+      <p>Our servers are located in the United States. By using Epic Focus, you understand that your data will be transferred to and processed in the United States, which may have different data-protection laws than your country of residence.</p>
+
+      <h2>10. Changes to This Policy</h2>
+      <p>If we make material changes to this policy, we will update the "Last updated" date at the top and, where appropriate, notify you in the app or by email. Continued use of Epic Focus after changes take effect means you accept the updated policy.</p>
+
+      <h2>11. Contact</h2>
+      <p>Questions, requests, or concerns about your data:</p>
+      <p><a href="mailto:connor@greatness.games">connor@greatness.games</a></p>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Connor Dodge LLC &middot; <a href="/">Epic Focus</a></p>
+    </footer>
+  </div>
+</body>
+</html>
