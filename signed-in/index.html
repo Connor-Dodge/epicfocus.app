@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signed In — Epic Focus</title>
+  <link rel="icon" type="image/png" href="../assets/icon.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #12121a;
+      --border: #1e1e2e;
+      --text: #e0e0e8;
+      --text-muted: #8888a0;
+      --accent: #7c5cfc;
+      --gold: #f0c040;
+      --danger: #f0605c;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(124, 92, 252, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 92, 252, 0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 40px;
+      max-width: 480px;
+      text-align: center;
+    }
+
+    .glyph {
+      display: block;
+      font-family: 'Silkscreen', monospace;
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    body.error .glyph { color: var(--danger); }
+
+    h1 {
+      font-family: 'Silkscreen', monospace;
+      font-size: 1.5rem;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="glyph" id="glyph">✓</span>
+    <h1 id="title">Signed In</h1>
+    <p id="message">
+      Your calendar is connected. Close this tab and return to Epic Focus to
+      continue your quest.
+    </p>
+  </div>
+  <script>
+    if (new URLSearchParams(window.location.search).get('status') === 'error') {
+      document.body.classList.add('error');
+      document.getElementById('glyph').textContent = '✕';
+      document.getElementById('title').textContent = 'Sign-In Failed';
+      document.getElementById('message').textContent =
+        'Something went wrong. Head back to Epic Focus and try connecting again.';
+      document.title = 'Sign-In Failed — Epic Focus';
+    }
+  </script>
+</body>
+</html>
