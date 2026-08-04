@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+  <channel>
+    <title>Epic Focus</title>
+    <link>https://epicfocus.app/releases/appcast.xml</link>
+    <description>Epic Focus release channel</description>
+    <language>en</language>
+    <item>
+      <title>Epic Focus 0.43.0 (macOS)</title>
+      <sparkle:channel>release</sparkle:channel>
+      <sparkle:version>4300999</sparkle:version>
+      <sparkle:shortVersionString>0.43.0</sparkle:shortVersionString>
+      <enclosure url="https://github.com/Connor-Dodge/epic-focus-releases/releases/download/v0.43.0/Epic-Focus.dmg" sparkle:edSignature="7SbpUqFj/I12k78cGn620ipfCJthBWwNG0LJRhStrVhuQh4RgqP3n5K6u5AGRRsDGeu28mMXnNjGZFngFnt0Cw==" length="34799365" type="application/octet-stream" />
+    </item>
+  </channel>
+</rss>
