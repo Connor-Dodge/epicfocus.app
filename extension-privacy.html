@@ -1,0 +1,289 @@
+<!--
+  Ready to publish. This file belongs at the ROOT of the epicfocus.app site
+  repo (github.com/Connor-Dodge/epicfocus.app), alongside privacy.html —
+  its relative paths (assets/icon.png, /privacy.html, /blocked) assume that.
+
+  It lives here rather than in the site checkout because publishing it is the
+  owner-only hosting step: the store submission form needs a public URL, and
+  pushing the site repo is what creates one. See RELEASE_TODO.md.
+
+  Canonical text: browser_extension/store/privacy-policy.md. Edit both together.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extension Privacy Policy — Epic Focus</title>
+  <meta name="description" content="How the Epic Focus Blocker browser extension handles your data. It collects nothing.">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #12121a;
+      --border: #1e1e2e;
+      --text: #e0e0e8;
+      --text-muted: #8888a0;
+      --accent: #7c5cfc;
+      --accent-glow: rgba(124, 92, 252, 0.3);
+      --gold: #f0c040;
+      --green: #40d080;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(124, 92, 252, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 92, 252, 0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 48px 0 32px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      image-rendering: pixelated;
+      margin-bottom: 20px;
+    }
+
+    .home-link {
+      display: inline-block;
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .home-link:hover { color: var(--gold); }
+
+    h1 {
+      font-family: 'Silkscreen', monospace;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .meta {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-family: 'Silkscreen', monospace;
+      letter-spacing: 1px;
+    }
+
+    main { padding-bottom: 64px; }
+
+    .intro {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    .intro strong { color: white; }
+
+    h2 {
+      font-family: 'Silkscreen', monospace;
+      font-size: 1.125rem;
+      color: var(--gold);
+      margin: 48px 0 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.875rem;
+      color: white;
+      margin: 28px 0 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    p { margin-bottom: 14px; }
+
+    ul {
+      margin: 0 0 18px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent);
+    }
+
+    a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+    strong { color: white; font-weight: 600; }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 0.9em;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--text);
+    }
+
+    .callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 20px 0;
+    }
+
+    .callout.health {
+      border-left-color: var(--green);
+    }
+
+    .callout .label {
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .callout.health .label { color: var(--green); }
+
+    .callout p:last-child { margin-bottom: 0; }
+
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      border-bottom: none;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 480px) {
+      header { padding: 32px 0 24px; }
+      .intro { padding: 20px; }
+      .callout { padding: 14px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="assets/icon.png" alt="Epic Focus" class="logo">
+      <a href="/" class="home-link">&larr; Epic Focus</a>
+      <h1>Extension Privacy Policy</h1>
+      <p class="meta">Epic Focus Blocker browser extension &middot; Last updated: August 11, 2026</p>
+    </header>
+
+    <main>
+      <div class="intro">
+        <p>Epic Focus Blocker does not collect anything about you. It has no account, no analytics, no advertising, no tracking, and no server of its own. It receives a list of sites to block from the Epic Focus desktop app running on your own computer, blocks them, and forgets them when the app disconnects.</p>
+      </div>
+
+      <p>This policy covers <strong>the browser extension only</strong>. The Epic Focus desktop and mobile apps have their own policy at <a href="/privacy.html">epicfocus.app/privacy.html</a>, which covers accounts, Apple Health, and calendar data. Nothing here applies to those; nothing there applies to the extension.</p>
+
+      <h2>1. Who We Are</h2>
+      <p>Epic Focus Blocker is published by Connor Dodge LLC. Questions about this policy or about your data: <a href="mailto:connor@greatness.games">connor@greatness.games</a>.</p>
+
+      <h2>2. What the Extension Collects</h2>
+      <p><strong>Nothing.</strong> Specifically, it does not collect, store, or transmit:</p>
+      <ul>
+        <li>your browsing history or the pages you visit</li>
+        <li>the contents of any page</li>
+        <li>personally identifiable information of any kind</li>
+        <li>credentials, form data, or financial information</li>
+        <li>location, health, or activity data</li>
+        <li>any identifier that could be used to track you across sites or sessions</li>
+      </ul>
+
+      <h2>3. What It Does Hold, and Where</h2>
+      <p><strong>Your block list, in memory, while a session is running.</strong> The desktop app sends the domains and path patterns <em>you</em> chose to block. They live in the extension's memory as blocking rules, and they are deleted when the desktop app disconnects or the session ends. They are never written to disk by the extension and never leave your computer.</p>
+      <p><strong>One timestamp, on your device.</strong> Local extension storage holds a single value &mdash; <code>ef_lastSelfReloadAt</code> &mdash; recording the last time the extension reloaded itself after noticing a version mismatch with the desktop app. It exists to stop a reload loop. It contains no browsing data and never leaves your device.</p>
+
+      <h2>4. What It Talks To</h2>
+      <p><strong>The Epic Focus desktop app, on your own computer.</strong> The only connection the extension opens is a native-messaging connection to the Epic Focus native host (<code>com.epicfocus.host</code>) running locally. It is a connection between two programs on the same machine &mdash; nothing is sent over the internet. Over that connection the extension receives your block rules and reports back three things about itself so the app can tell a healthy setup from a broken one: its extension id, its version, and whether you have allowed it to run in private/incognito windows. It does not report what you browse.</p>
+      <p><strong>The block page, when a block actually happens.</strong> A blocked navigation is redirected to <a href="/blocked">epicfocus.app/blocked</a>, a plain page hosted by us. That is an ordinary web request, so our web host records what any web host records &mdash; IP address, timestamp, and user-agent &mdash; and it tells us that <em>some</em> block page was loaded. <strong>It does not carry which site was blocked</strong>: the address the extension navigates to has no query string, no referrer data, and no identifier of any kind attached. We do not use these logs to build any profile, and we run no analytics or advertising scripts on that page.</p>
+
+      <h2>5. Permissions, and Why Each Exists</h2>
+      <ul>
+        <li><strong>declarativeNetRequest</strong> &mdash; to redirect blocked sites to the block page. It cannot read the contents of your requests.</li>
+        <li><strong>nativeMessaging</strong> &mdash; to receive your block list from the Epic Focus desktop app on your own machine. This is the extension's only data source.</li>
+        <li><strong>storage</strong> &mdash; for the single self-reload timestamp described above.</li>
+        <li><strong>&lt;all_urls&gt; (host permission)</strong> &mdash; because you can choose to block any site on the web, the extension cannot know in advance which hosts it needs to act on. It is also what lets a small content script notice single-page-app navigations (for example youtube.com/shorts), which change the URL without loading a page. That script reads only the current URL and compares it against your own block patterns. It reads no page content and transmits nothing.</li>
+      </ul>
+
+      <h2>6. Data Sharing and Sale</h2>
+      <p>We do not sell your data. We do not share it with third parties. We do not transfer it for advertising, credit assessment, lending, or any purpose unrelated to the extension's single purpose. There is no data to sell, share, or transfer.</p>
+
+      <h2>7. Your Control</h2>
+      <ul>
+        <li>Blocking only happens while the Epic Focus desktop app is running and a Defenses profile is active. Ending a session or quitting the app removes every rule.</li>
+        <li>What is blocked is entirely your own list, edited in the desktop app.</li>
+        <li>Removing the extension removes everything it holds, including the one stored timestamp.</li>
+      </ul>
+
+      <h2>8. Children</h2>
+      <p>The extension is not directed at children under 13 and collects no data from anyone, children included.</p>
+
+      <h2>9. Changes to This Policy</h2>
+      <p>If this policy changes materially, the &ldquo;Last updated&rdquo; date above changes with it. The canonical text lives in the Epic Focus repository at <code>browser_extension/store/privacy-policy.md</code>; this page and that file are updated together.</p>
+
+      <h2>10. Contact</h2>
+      <p>Questions, requests, or concerns:</p>
+      <p><a href="mailto:connor@greatness.games">connor@greatness.games</a></p>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Connor Dodge LLC &middot; <a href="/">Epic Focus</a></p>
+    </footer>
+  </div>
+</body>
+</html>
