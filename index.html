@@ -366,8 +366,19 @@
     </section>
 
     <footer>
-      <p>&copy; 2026 Epic Focus. Forge your focus. &middot; <a href="/privacy.html" style="color: inherit;">Privacy</a></p>
+      <!-- The year is filled in at render time by the script below. The literal
+           here is the no-JS fallback, not the source of truth — keep it, an
+           empty year reads as a broken page. -->
+      <p>&copy; <span id="copyright-year">2026</span> Greatness Games LLC. Forge your focus. &middot; <a href="/privacy.html" style="color: inherit;">Privacy</a></p>
     </footer>
+
+    <script>
+      // Uses the visitor's local clock, which is the right call for a
+      // copyright line: it is a display convention, not a legal assertion
+      // that needs a timezone-authoritative date.
+      document.getElementById('copyright-year').textContent =
+        new Date().getFullYear();
+    </script>
   </div>
 </body>
 </html>
