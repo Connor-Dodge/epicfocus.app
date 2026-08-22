@@ -245,11 +245,15 @@
       </div>
 
       <h3>Calendar data</h3>
-      <p>If you grant calendar access, Epic Focus reads your calendar events from your device so it can display them alongside your tasks and focus sessions. <strong>Your calendar events stay on your device.</strong> We do not transmit them to our servers, and we do not write new events to your calendar.</p>
+      <p>If you grant calendar access, Epic Focus reads your calendar events so it can display them alongside your tasks and focus sessions, and — at your direction — <strong>creates, edits, moves, and deletes events</strong> in the calendars you have chosen. Scheduling a task, dragging an event to a new time, editing its details, changing a repeating series, or replying to an invitation all write back to the underlying calendar. Epic Focus never changes your calendar on its own: every write follows an action you took in the app.</p>
+
+      <p><strong>The contents of your calendar events are never sent to our servers.</strong> Apple events are read and written on your device through the system calendar. Google events are exchanged directly between your device and Google, using credentials stored on your device — they do not pass through us.</p>
+
+      <p>What we do store, so your setup follows you from one device to the next, is your calendar <em>configuration</em>: which calendars you have selected, and the identifiers of individual events you have chosen to hide from view. Those identifiers are opaque event IDs (for a repeating Apple event, an ID plus that occurrence's start time). They carry no titles, descriptions, locations, or attendees.</p>
 
       <h3>Device permissions we may request</h3>
       <ul>
-        <li><strong>Calendar</strong> — to display events next to your tasks (read-only)</li>
+        <li><strong>Calendar</strong> — to display events next to your tasks, and to create, edit and delete events when you ask it to (read and write)</li>
         <li><strong>HealthKit</strong> — to read aggregated daily values for habits you've connected (read-only)</li>
         <li><strong>Contacts</strong> — to display attendee information on calendar events (read-only)</li>
         <li><strong>Notifications</strong> — to send reminders for habits and focus sessions (sent locally from your device)</li>
