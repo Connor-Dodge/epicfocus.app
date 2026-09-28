@@ -6,6 +6,13 @@
     <description>Epic Focus release channel</description>
     <language>en</language>
     <item>
+      <title>Epic Focus 0.50.0 (macOS)</title>
+      <sparkle:channel>release</sparkle:channel>
+      <sparkle:version>5000999</sparkle:version>
+      <sparkle:shortVersionString>0.50.0</sparkle:shortVersionString>
+      <enclosure url="https://github.com/Connor-Dodge/epic-focus-releases/releases/download/v0.50.0/Epic-Focus.dmg" sparkle:edSignature="P8QRh3xD4BlHDA3kxftChEXbJd07YtjK1O4jBKuzP0ueSirY7FPNtTrxeLGoeiT+1aS3Asx9Ockvl01SDjPXDg==" length="36989012" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Epic Focus 0.49.0 (macOS)</title>
       <sparkle:channel>release</sparkle:channel>
       <sparkle:version>4900999</sparkle:version>
